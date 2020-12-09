@@ -1,10 +1,8 @@
 const { Verifier } = require('@pact-foundation/pact');
 let opts = {
-  providerBaseUrl: 'http://localhost:3200',
+  providerBaseUrl: process.env.PROVIDER_BASE_URL || 'http://localhost:3200',
   provider: 'rpa_api',
-  pactBrokerUrl: 'http://localhost:80',
-  // pactBrokerUsername: process.env.PACT_USERNAME,
-  // pactBrokerPassword: process.env.PACT_PASSWORD,
+  pactBrokerUrl: process.env.BROKER_URL || 'http://localhost:80',
   publishVerificationResult: true,
   providerVersion: '1.0',
 };

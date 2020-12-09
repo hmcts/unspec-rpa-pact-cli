@@ -20,12 +20,12 @@ export default function(app: express.Application): void {
     }
     MailService.setApiKey(apiKey);
 
-    const toEmail: string = process.env.RPA_TO_EMAIL; //'sabah.irfan@gmail.com'
+    const toEmail: string = process.env.RPA_TO_EMAIL;
     if (!(toEmail && toEmail.length > 0)) {
       throw new Error('RPA_TO_EMAIL is a required environment variable, but wasn`t set');
     }
 
-    const fromEmail: string = process.env.RPA_FROM_EMAIL; //'civilunspecified@gmail.com'
+    const fromEmail: string = process.env.RPA_FROM_EMAIL || 'civilunspecified@gmail.com';
     if (!(fromEmail && fromEmail.length > 0)) {
       throw new Error('RPA_FROM_EMAIL is a required environment variable, but wasn`t set');
     }

@@ -14,9 +14,9 @@ export default function(app: express.Application): void {
     const subject = `Version ${version} - ${title}`;
     const body = `Please find attached RPA Json for: ${title} - version ${version}`;
 
-    const apiKey: string = process.env.SENDGRID_API_KEY;
+    const apiKey: string = process.env.RPA_SENDGRID_API_KEY;
     if (!(apiKey && apiKey.length > 0)) {
-      throw new Error('SENDGRID_API_KEY is a required environment variable, but wasn`t set');
+      throw new Error('RPA_SENDGRID_API_KEY is a required environment variable, but wasn`t set');
     }
     MailService.setApiKey(apiKey);
 
@@ -26,8 +26,8 @@ export default function(app: express.Application): void {
     }
 
     const fromEmail: string = process.env.RPA_FROM_EMAIL || 'civilunspecified@gmail.com';
-    if (!(fromEmail && fromEmail.length > 0)) {
-      throw new Error('RPA_FROM_EMAIL is a required environment variable, but wasn`t set');
+    if (!(process.env.RPA_FROM_EMAIL && process.env.RPA_FROM_EMAIL.length > 0)) {
+      console.log(`RPA_FROM_EMAIL environment variable is not set, using default as ${fromEmail}`);
     }
 
     const msg = {

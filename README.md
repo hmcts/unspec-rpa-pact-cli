@@ -33,13 +33,21 @@ Run application and pact verifier. This will:
  * and will send email to `RPA_TO_EMAIL` address configured
 
 These are the environment variables required to set before running.
+| Env Variable             | Default                             | Mandatory |
+| ---------------------    | ----------------------------------- | --------- |
+| RPA_SENDGRID_API_KEY     |                                     |    Yes    |
+| RPA_FROM_EMAIL           |   civilunspecified@gmail.com        |    Yes    |
+| RPA_TO_EMAIL             |                                     |    Yes    |
+| RPA_PACT_BROKER_URL      |   http://localhost:80               |    Yes    |
+| RPA_CONSUMER_VERSION_TAG |   latest                            |    Yes    |
 
 ```bash
-export SENDGRID_API_KEY= XXXXX
+export RPA_SENDGRID_API_KEY= XXXXX
 export RPA_FROM_EMAIL='civilunspecified@gmail.com'
-export RPA_TO_EMAIL='rpp@robotemail.com'
+export RPA_TO_EMAIL=<email address to receive rpa json>
 
-export BROKER_URL='http://localhost:80'
+export RPA_PACT_BROKER_URL='http://localhost:80'
+export RPA_CONSUMER_VERSION_TAG=<tag from pact to run against>
 ```
 
 Then run:

@@ -17,22 +17,40 @@ Install dependencies by executing the following command:
  ```bash
 $ yarn install
  ```
-Bundle:
 
-```bash
-$ yarn webpack
-```
-
-Run:
+Run the fake endpoint:
 
 ```bash
 $ yarn start
 ```
-
 The applications's home page will be available at https://localhost:3200
 
-Run application and pact verifier:
+### Running the pact verifier with application
 
+Run application and pact verifier. This will:
+ * start the application at https://localhost:3200
+ * run the pact verifier against the pacts fetched from the pact broker configured with env variable
+ * and will send email to `RPA_TO_EMAIL` address configured
+
+These are the environment variables required to set before running.
+| Env Variable             | Default                             | Mandatory |
+| ---------------------    | ----------------------------------- | --------- |
+| RPA_SENDGRID_API_KEY     |                                     |    Yes    |
+| RPA_FROM_EMAIL           |   civilunspecified@gmail.com        |    Yes    |
+| RPA_TO_EMAIL             |                                     |    Yes    |
+| RPA_PACT_BROKER_URL      |   http://localhost:80               |    Yes    |
+| RPA_CONSUMER_VERSION_TAG |   latest                            |    Yes    |
+
+```bash
+export RPA_SENDGRID_API_KEY= XXXXX
+export RPA_FROM_EMAIL='civilunspecified@gmail.com'
+export RPA_TO_EMAIL=<email address to receive rpa json>
+
+export RPA_PACT_BROKER_URL='http://localhost:80'
+export RPA_CONSUMER_VERSION_TAG=<tag from pact to run against>
+```
+
+Then run:
 ```bash
 $ yarn test:pact
 ```

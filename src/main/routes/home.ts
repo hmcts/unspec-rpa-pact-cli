@@ -11,8 +11,9 @@ export default function(app: express.Application): void {
     console.log('Version:', version);
     console.log('Payload:', JSON.stringify(req.body));
     const fileName = `civil-unspecified-rpa-${version}.json`;
-    const subject = `Version ${version} - ${title}`;
-    const body = `Please find attached RPA Json for: ${title} - version ${version}`;
+    const tag: string = process.env.RPA_CONSUMER_VERSION_TAG;
+    const subject = `Version: ${version} - Tag: ${tag} - ${title}`;
+    const body = `Please find attached RPA Json for: ${title} - version ${version} and consumer version tag ${tag}`;
 
     const apiKey: string = process.env.RPA_SENDGRID_API_KEY;
     if (!(apiKey && apiKey.length > 0)) {

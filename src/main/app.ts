@@ -14,11 +14,15 @@ import { PropertiesVolume } from './modules/properties-volume';
 import { AppInsights } from './modules/appinsights';
 const { setupDev } = require('./development');
 
+const proxy = require('express-http-proxy');
+
 const env = process.env.NODE_ENV || 'development';
 const developmentMode = env === 'development';
 
 export const app = express();
 app.locals.ENV = env;
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
+app.use('/hmcts-broker', proxy('https://pact-broker.platform.hmcts.net'));
 
 const logger = Logger.getLogger('app');
 

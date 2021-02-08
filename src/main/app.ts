@@ -1,31 +1,25 @@
 import { glob } from 'glob';
 
 const { Logger } = require('@hmcts/nodejs-logging');
-
+import * as path from 'path';
 import * as bodyParser from 'body-parser';
 import config = require('config');
 import cookieParser from 'cookie-parser';
 import express from 'express';
 import { Helmet } from './modules/helmet';
-import * as path from 'path';
 import { HTTPError } from 'HttpError';
 import { Nunjucks } from './modules/nunjucks';
 import { PropertiesVolume } from './modules/properties-volume';
 import { AppInsights } from './modules/appinsights';
 const { setupDev } = require('./development');
 
-const proxy = require('express-http-proxy');
-
 const env = process.env.NODE_ENV || 'development';
 const developmentMode = env === 'development';
-
 export const app = express();
 app.locals.ENV = env;
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
-app.use('/hmcts-broker', proxy('https://pact-broker.platform.hmcts.net'));
 
 const logger = Logger.getLogger('app');
-
 new PropertiesVolume().enableFor(app);
 new AppInsights().enable();
 new Nunjucks(developmentMode).enableFor(app);

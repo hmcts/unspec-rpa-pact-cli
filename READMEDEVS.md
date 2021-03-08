@@ -1,4 +1,4 @@
-# rpa-contract-test-rpa-contract
+# rpa-contract-test
 
 ## Getting Started
 This tool is used to verify pacts using the Pactflow platform, a public pact broker. Upon verification, an email with details of the pact is sent to an email, provided by the user.

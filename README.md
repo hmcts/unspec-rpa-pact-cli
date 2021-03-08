@@ -1,7 +1,7 @@
-# rpa-contract-test-rpa-contract
+# rpa-contract-test
 
 ## Getting Started
-This tool is used to verify pacts using the Pactflow platform, a public pact broker. Upon verification, an email with details of the pact is sent to an email, provided by the user.
+This tool is used to verify Pact contracts that have been publish to the Pactflow platform, by the Civil Damages team. Pact contracts, are versions. Specific pact versions can be verified using this tool. Upon verification, all the tests that form the contract will lead to emails being sent to the robotics at an email address, that can be provided by the user.
 
 The Pactflow portal can be accessed via the following link: https://civil-damages-claims.pactflow.io
 
@@ -14,39 +14,43 @@ Running the application requires the following tools to be installed in your env
 
   * [Node.js](https://nodejs.org/) v12.0.0 or later
   * [yarn](https://yarnpkg.com/)
-  * [Docker](https://www.docker.com)
 
 ### Instructions
+When you sign in to the Pactflow portal, you will see a screen similar to the following:
+
 ![The pact portal after sign in.](img/pact_portal.png)
 
-You can view details of the pact by clicking on "View Pact".
-To see different versions of pacts that have been published, you can click on the tab "Matrix".
+You can view details of a Pact contract by clicking on "View Pact".
 
-To use this on the command line, run this command on the command line:
+To see different versions of Pact Contracts that have been published, you can click on the tab "Matrix".
+
+To verify a Pact contract, use the following command:
 
 ```bash
 $ ./run.sh
 ```
-After that, you will be asked for the consumer pact tag version:
+You will be prompted for the consumer pact tag version.
 
+If you do not specify a consumer pact tag version, it will look for pacts tagged with 'latest'.
 ```bash
 Please enter the consumer pact tag version:
 
 ```
-If you do not specify a consumer pact tag, it will look for the latest pact.
-And then you will be asked for the email address that the details of the pact will be sent to:
+
+
+You will then be prompted for the email address of the robot:
 ```bash
 Please enter the robotics email address:
 
 ```
-Using the API token that you've received from the Team, you will then enter this into the program:
+Finally, you need to supply the API Token that will be provided by the Civil Damages Claims team.
 ```bash
 Please enter Pact broker API Token:
 
 ```
-* If you are verifying Pacts from the HMCTS Pact Broker, please leave this blank.
-* If connecting to Pactflow, please disable the HMCTS VPN.
 
 After this the pact verification will be carried out, and the email will be sent.
 
-* For developers, please look at READMEDEVS.md
+---
+* For more technical information, please look at [this README.](./READMEDEVS.md)
+

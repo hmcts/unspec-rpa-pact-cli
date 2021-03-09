@@ -17,7 +17,7 @@ export RPA_PACT_BROKER_TOKEN=$pactBrokerToken
 export RPA_CONSUMER_VERSION_TAG=$versionTag
 export RPA_TO_EMAIL=$emailAddress
 
-
+cp ./certificate-bundle/ca-bundle.crt ./node_modules/@pact-foundation/pact-node/standalone/darwin-1.88.3/pact/lib/ruby/lib
 
 yarn install
 yarn test:pact

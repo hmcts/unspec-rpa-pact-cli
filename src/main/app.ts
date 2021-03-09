@@ -17,6 +17,7 @@ const env = process.env.NODE_ENV || 'development';
 const developmentMode = env === 'development';
 export const app = express();
 app.locals.ENV = env;
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
 const logger = Logger.getLogger('app');
 new PropertiesVolume().enableFor(app);

@@ -1,7 +1,7 @@
 # rpa-contract-test
 
 ## Getting Started
-This tool is used to verify Pact contracts that have been publish to the Pactflow platform, by the Civil Damages team. Pact contracts, are versions. Specific pact versions can be verified using this tool. Upon verification, all the tests that form the contract will lead to emails being sent to the robotics at an email address, that can be provided by the user.
+This tool is used to verify Pact contracts that have been publish to the Pactflow platform, by the Civil Damages team. Pact contracts, are versioned. Specific pact versions can be verified using this tool. Upon verification, all the tests that form the contract will lead to emails being sent to the robotics at an email address, that can be provided by the user.
 
 The Pactflow portal can be accessed via the following link: https://civil-damages-claims.pactflow.io
 

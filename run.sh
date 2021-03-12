@@ -17,6 +17,15 @@ export RPA_PACT_BROKER_TOKEN=$pactBrokerToken
 export RPA_CONSUMER_VERSION_TAG=$versionTag
 export RPA_TO_EMAIL=$emailAddress
 
+#Hotpatching the library (https://tools.hmcts.net/jira/browse/CMC-1275)
+#This needs to be removed once the client has been fixed (https://github.com/pact-foundation/pact-ruby-standalone/issues/55)
+
+if [ -e ./node_modules/@pact-foundation/pact-node/standalone/darwin-1.88.3/pact/lib/ruby/lib ]; then
+  cp ./certificate-bundle/ca-bundle.crt ./node_modules/@pact-foundation/pact-node/standalone/darwin-1.88.3/pact/lib/ruby/lib
+else
+#  the path on the windows
+  cp ./certificate-bundle/ca-bundle.crt ./node_modules/@pact-foundation/pact-node/standalone/win32-1.88.3/pact/lib/ruby/lib
+fi
 
 yarn install
 yarn test:pact

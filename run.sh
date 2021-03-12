@@ -24,6 +24,7 @@ if [ -e ./node_modules/@pact-foundation/pact-node/standalone/darwin-1.88.3/pact/
   cp ./certificate-bundle/ca-bundle.crt ./node_modules/@pact-foundation/pact-node/standalone/darwin-1.88.3/pact/lib/ruby/lib
 else
 #  the path on the windows
+  SET NODE_ENV=production
   cp ./certificate-bundle/ca-bundle.crt ./node_modules/@pact-foundation/pact-node/standalone/win32-1.88.3/pact/lib/ruby/lib
 fi
 

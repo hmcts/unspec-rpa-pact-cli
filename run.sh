@@ -16,6 +16,7 @@ export RPA_PACT_BROKER_TOKEN=$pactBrokerToken
 
 export RPA_CONSUMER_VERSION_TAG=$versionTag
 export RPA_TO_EMAIL=$emailAddress
+export NODE_ENV=production
 
 #Hotpatching the library (https://tools.hmcts.net/jira/browse/CMC-1275)
 #This needs to be removed once the client has been fixed (https://github.com/pact-foundation/pact-ruby-standalone/issues/55)

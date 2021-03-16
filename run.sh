@@ -1,4 +1,10 @@
 #!/bin/bash
+if test -z "$RPA_SENDGRID_API_KEY"
+then
+  echo "Please enter SendGrid API Token:"
+  read sendGridToken
+  export RPA_SENDGRID_API_KEY=$sendGridToken
+fi
 
 echo "Please enter the consumer pact tag version:"
 read versionTag
@@ -6,14 +12,16 @@ read versionTag
 echo "Please enter the robotics email address:"
 read emailAddress
 
-echo "Please enter Pact broker API Token:"
-read pactBrokerToken
+if test -z "$RPA_PACT_BROKER_TOKEN"
+then
+  echo "Please enter Pact broker API Token:"
+  read pactBrokerToken
+  export RPA_PACT_BROKER_TOKEN=$pactBrokerToken
+fi
 
-export RPA_SENDGRID_API_KEY=
+
 export RPA_FROM_EMAIL=civilunspecified@gmail.com
 export RPA_PACT_BROKER_URL='https://civil-damages-claims.pactflow.io/'
-export RPA_PACT_BROKER_TOKEN=$pactBrokerToken
-
 export RPA_CONSUMER_VERSION_TAG=$versionTag
 export RPA_TO_EMAIL=$emailAddress
 

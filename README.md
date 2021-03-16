@@ -14,6 +14,7 @@ Running the application requires the following tools to be installed in your env
 
   * [Node.js](https://nodejs.org/) v12.0.0 or later
   * [yarn](https://yarnpkg.com/)
+  * [git (and git bash for Windows)](https://git-scm.com/download)
 
 ### Instructions
 When you sign in to the Pactflow portal, you will see a screen similar to the following:
@@ -23,6 +24,13 @@ When you sign in to the Pactflow portal, you will see a screen similar to the fo
 You can view details of a Pact contract by clicking on "View Pact".
 
 To see different versions of Pact Contracts that have been published, you can click on the tab "Matrix".
+
+Before running, open the file `run.sh` (in a text editor such as notepad) and set the `RPA_SENDGRID_API_KEY`, which can also be acquired from the Civil Damages team.
+
+![Where to enter the API Key for SendGrid.](img/notepad.png)
+
+
+To use this on a Windows machine, please open Git Bash.
 
 To verify a Pact contract, use the following command:
 

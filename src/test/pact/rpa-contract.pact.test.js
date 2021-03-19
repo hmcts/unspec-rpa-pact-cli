@@ -3,6 +3,7 @@ let opts = {
   providerBaseUrl: process.env.PROVIDER_BASE_URL || 'http://localhost:3200',
   provider: 'rpa_api',
   pactBrokerUrl: process.env.RPA_PACT_BROKER_URL || 'http://localhost:80',
+  pactBrokerToken: process.env.RPA_PACT_BROKER_TOKEN,
   publishVerificationResult: true,
   providerVersion: '1.0.0',
   consumerVersionSelectors: [

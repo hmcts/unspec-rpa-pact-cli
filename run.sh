@@ -19,11 +19,15 @@ then
   export RPA_PACT_BROKER_TOKEN=$pactBrokerToken
 fi
 
+echo "(Optional) Please enter the start index for case reference number,
+it will override the case reference numbers in JSON attachments:"
+read caseReferenceStartIndex
 
 export RPA_FROM_EMAIL=civilunspecified@gmail.com
 export RPA_PACT_BROKER_URL='https://civil-damages-claims.pactflow.io/'
 export RPA_CONSUMER_VERSION_TAG=$versionTag
 export RPA_TO_EMAIL=$emailAddress
+export RPA_CASE_REFERENCE_START_INDEX=$caseReferenceStartIndex
 
 
 

@@ -23,11 +23,27 @@ echo "(Optional) Please enter the start index for case reference number,
 it will override the case reference numbers in JSON attachments:"
 read caseReferenceStartIndex
 
+echo "(Optional) Please enter the numeric value for repeat count, if you want the same email more than once,
+it will send the same RPA email multiple times based on this value:"
+read emailRepeatCount
+
+if test -z "$emailRepeatCount"
+then
+emailRepeatCount=1
+fi
+
+if ! [[ $emailRepeatCount =~ ^[0-9]+$ ]]
+then
+ echo "'$emailRepeatCount' is not a valid numeric value"
+ exit 1
+fi
+
 export RPA_FROM_EMAIL=civilunspecified@gmail.com
 export RPA_PACT_BROKER_URL='https://civil-damages-claims.pactflow.io/'
 export RPA_CONSUMER_VERSION_TAG=$versionTag
 export RPA_TO_EMAIL=$emailAddress
 export RPA_CASE_REFERENCE_START_INDEX=$caseReferenceStartIndex
+export RPA_EMAIL_REPEAT_COUNT=$emailRepeatCount
 
 yarn install
 

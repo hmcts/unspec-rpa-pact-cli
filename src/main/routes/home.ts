@@ -75,7 +75,7 @@ export default function(app: express.Application): void {
         to: toEmail,
         from: fromEmail,
         subject: caseNumber ? `Case reference: ${caseNumber} ${subject}` : subject,
-        text: body,
+        text: `${body} Repeat count: ${count}`,
         attachments: [
           {
             content: Buffer.from(JSON.stringify(attachmentJson)).toString('base64'),
